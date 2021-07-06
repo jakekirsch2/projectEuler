@@ -1,5 +1,3 @@
-import problem3
-
 class problem10:
     def main():
         tempSum = 0
