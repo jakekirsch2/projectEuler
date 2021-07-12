@@ -14,21 +14,22 @@ def main():
 
         
 def getNumDivisors(number,primes):
-    primeFactors = []
-    numToDivide = 1
+    exponents = []
     tempNumber = number
     for prime in primes:
-        numRepeating = 0
+        numExponents = 0
         while tempNumber % prime == 0:
-            numRepeating = numRepeating + 1
+            numExponents = numExponents + 1
             tempNumber = tempNumber / prime
-            primeFactors.append(prime)
-        if(numRepeating >= 2):
-            numToDivide = numToDivide * numRepeating 
+        if(numExponents > 0):
+            exponents.append(numExponents + 1)
         if(prime > tempNumber):
             break
+    totalDivisors = 1
+    for exponent in exponents:
+        totalDivisors = totalDivisors * exponent
         
-    return 2**len(primeFactors) / numToDivide
+    return totalDivisors
 
 
 main()
